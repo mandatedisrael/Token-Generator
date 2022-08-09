@@ -38,12 +38,33 @@
 } */
 
 .App-header{
-  background-color: #282c34;
+  background-color:white;
   min-height: 10vh;
+  display: flex;
+  align-items: center;
+  font-size: calc(2px + 2vmin);
+  color:  #282c34;
+}
+
+.non-header{
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
+}
+
+.intro-container{
+  width: 100%;
+  display: flex;
+  background-color: #282c34;
+  height: 30vh;
   color: white;
+  font-size: 5vh;
+  flex-direction: column;
+  /* justify-content: center; */
+  align-items: center;
+}
+
+
+.logo, .intro {
+  display: block;
 }
