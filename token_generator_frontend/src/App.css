@@ -44,6 +44,7 @@
   align-items: center;
   font-size: calc(2px + 2vmin);
   color:  #282c34;
+  padding-left: 2%;
 }
 
 .non-header{
@@ -55,9 +56,9 @@
 .intro-container{
   width: 100%;
   display: flex;
-  background-color: #282c34;
+  background-color: #ffffff;
   height: 30vh;
-  color: white;
+  color: #8994ff;
   font-size: 5vh;
   flex-direction: column;
   /* justify-content: center; */
