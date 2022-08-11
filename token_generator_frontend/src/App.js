@@ -14,21 +14,21 @@ function App() {
         </div>
         <div className="token-info">
           <form action="">
-            <div className="tokenname-symbol">
-              <label htmlFor="tokenNameId">Token Name:</label>
-              <input type="text" id="tokenNameId" name="tokenName" /><br/>
-              <label htmlFor="tokenSymbolId">Symbol:</label>
-              <input type="text" id="tokenSymbolId" name="tokenSymbol"/><br/>
+            <div className="form-details">
+              <div className="tokenname-symbol">
+                <label htmlFor="tokenNameId">Token Name:</label>
+                <input type="text" id="tokenNameId" name="tokenName" /><br/>
+                <label htmlFor="tokenSymbolId">Symbol:</label>
+                <input type="text" id="tokenSymbolId" name="tokenSymbol"/><br/>
+              </div>
+              <div className="decimal-tokensupply">
+                <label htmlFor="decimal">Decimal:</label>
+                <input type="text" id="decimal" placeholder='18' name="decimalForToken"/><br/>
+                <label htmlFor="tokenSupplyId">Token Supply:</label>
+                <input type="text" id="tokenSupplyId" name="tokenSupply"/><br/>
+              </div>
             </div>
-            <div className="decimal-tokensupply">
-              <label htmlFor="decimal">Decimal:</label>
-              <input type="text" id="decimal" placeholder='18' name="decimalForToken"/><br/>
-              <label htmlFor="tokenSupplyId">Token Supply:</label>
-              <input type="text" id="tokenSupplyId" name="tokenSupply"/><br/>
-            </div>
-            <div className="submit">
-              <input type="submit" value="Create Token" />  
-            </div>
+            <input type="submit" value="Create Token" />
           </form>
         </div>
       </div>
