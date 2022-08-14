@@ -63,6 +63,9 @@
 
 .intro {
   display: block;
+  margin-top: 20px;
+  font-family: 'Open Sans';
+  font-size: larger;
 }
 
 
@@ -106,7 +109,8 @@ input[type="submit"]{
   color: white;
   height: 10vh;
   max-width: 200px;
-  background-color: #0d1721;
+  background-color: green;
+  border-bottom: none;
 }
 
 input[type="text"]:focus, input[type="number"]:focus{
@@ -118,6 +122,22 @@ input[type="text"]:focus, input[type="number"]:focus{
 img{
   background-color: white;
   border-radius: 50%;
-  margin-top: 40px;
-  margin-bottom: 40px;
+  margin-top: 60px;
+  margin-bottom: 20px;
+  width: 100px;
+}
+
+.connectWallet{
+  color: black;
+  width: 15%;
+  height: 5vh;
+  position: relative;
+  left: 40vh;
+  font-weight: bold;
+  background-color: white;
+}
+
+.eth-testnet{
+  border-bottom:1px solid white;
+  font-size: 30px;
 }
