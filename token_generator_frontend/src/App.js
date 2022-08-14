@@ -26,7 +26,7 @@ function App() {
                 <label htmlFor="decimal">Decimal:</label>
                 <input type="text" id="decimal" placeholder='18' name="decimalForToken"/><br/>
                 <label htmlFor="tokenSupplyId">Token Supply:</label>
-                <input type="text" id="tokenSupplyId" name="tokenSupply"/><br/>
+                <input type="number" id="tokenSupplyId" name="tokenSupply"/><br/>
               </div>
             </div>
             <input type="submit" value="Create Token" />
