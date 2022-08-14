@@ -1,5 +1,42 @@
 import eth from './eth.svg';
 import './App.css';
+import Web3 from "web3";
+import Web3Modal from "web3modal";
+
+const providerOptions = {
+  coinbasewallet: {
+    package: CoinbaseWalletSDK,
+    options: {
+      appName: "Dami token Maker",
+      infuraId: "602119d1f94b4106b34ff5a701e22bce",
+      chainId: 5,
+      darkMode:true
+
+    }
+  },
+
+  walletconnect:{
+    package: WalletConnectProvider,
+    options:{
+      infuraId:"602119d1f94b4106b34ff5a701e22bce"
+    }
+  },
+
+  binancechainwallet: {
+    package: true
+  },
+
+};
+
+const web3Modal = new Web3Modal({
+    network:"goerli",
+    cacheProvider: true,
+    theme:dark,
+    providerOptions
+  })
+const provider = await web3Modal.connect();
+const web3 = new Web3(provider);
+
 
 function App() {
   const connectedWallet = 0; //variable to toggle 'connect wallet' visibility
