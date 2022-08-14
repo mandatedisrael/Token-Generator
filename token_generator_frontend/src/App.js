@@ -2,11 +2,12 @@ import eth from './eth.svg';
 import './App.css';
 
 function App() {
+  const connectedWallet = 0; //variable to toggle 'connect wallet' visibility
   return (
     <div className="App">
       <header className="App-header">
         <h1 className="header-app">Token Generator</h1>
-        <button className="connectWallet">Connect Wallet</button>
+        {!connectedWallet && <button className="connectWallet">Connect Wallet</button>}
       </header>
       <div className="non-header">
         <div className="intro-container">
