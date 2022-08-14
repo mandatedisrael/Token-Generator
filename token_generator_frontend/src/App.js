@@ -2,6 +2,9 @@ import eth from './eth.svg';
 import './App.css';
 import Web3 from "web3";
 import Web3Modal from "web3modal";
+import CoinbaseWalletSDK from '@coinbase/wallet-sdk';
+import WalletConnectProvider from "@walletconnect/web3-provider";
+
 
 const providerOptions = {
   coinbasewallet: {
@@ -28,14 +31,29 @@ const providerOptions = {
 
 };
 
+const ABI = null;
+const ADDRESS = null;
+
 const web3Modal = new Web3Modal({
     network:"goerli",
     cacheProvider: true,
-    theme:dark,
+    theme:"dark",
     providerOptions
   })
-const provider = await web3Modal.connect();
-const web3 = new Web3(provider);
+
+async function connectWallet(){
+  var provider = await web3Modal.connect();
+  var web3 = new Web3(provider);
+  await provider.send("eth_requestAccounts");
+  var accounts = await web3.eth.getAccounts();
+  var account = accounts[0];
+  document.getElementById("connectedWalletAddress").textContent = account;
+  var contract = new web3.eth.Contract(ABI, ADDRESS)
+
+
+}
+
+
 
 
 function App() {
@@ -44,7 +62,7 @@ function App() {
     <div className="App">
       <header className="App-header">
         <h1 className="header-app">Token Generator</h1>
-        {!connectedWallet && <button className="connectWallet">Connect Wallet</button>}
+        {!connectedWallet && <button className="connectWallet" id='connectedWalletAddress' onClick={connectWallet}>Connect Wallet</button>}
       </header>
       <div className="non-header">
         <div className="intro-container">
