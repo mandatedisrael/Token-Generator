@@ -138,6 +138,7 @@ img{
   left: 40vh;
   font-weight: bold;
   background-color: white;
+  cursor: pointer;
 }
 
 .eth-testnet{
