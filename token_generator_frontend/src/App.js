@@ -4,44 +4,72 @@ import Web3 from "web3";
 import Web3Modal from "web3modal";
 import CoinbaseWalletSDK from '@coinbase/wallet-sdk';
 import WalletConnectProvider from "@walletconnect/web3-provider";
+import {ethers} from "ethers";
 
 
-const providerOptions = {
-  coinbasewallet: {
-    package: CoinbaseWalletSDK,
-    options: {
-      appName: "Dami token Maker",
-      infuraId: "602119d1f94b4106b34ff5a701e22bce",
-      chainId: 5,
-      darkMode:true
+// const providerOptions = {
+//   coinbasewallet: {
+//     package: CoinbaseWalletSDK,
+//     options: {
+//       appName: "Dami token Maker",
+//       infuraId: "c7fa6f7b272342f2bb62484bc011aa20",
+//       chainId: 4,
+//       darkMode:true
 
-    }
-  },
+//     }
+//   },
 
-  walletconnect:{
-    package: WalletConnectProvider,
-    options:{
-      infuraId:"602119d1f94b4106b34ff5a701e22bce"
-    }
-  },
+//   walletconnect:{
+//     package: WalletConnectProvider,
+//     options:{
+//       infuraId:"c7fa6f7b272342f2bb62484bc011aa20"
+//     }
+//   }
 
-  binancechainwallet: {
-    package: true
-  },
-
-};
+// };
 
 const ABI = null;
-const ADDRESS = null;
+ const ADDRESS = null;
+
+// const web3Modal = new Web3Modal({
+//     network:"rinkeby",
+//     chainId:4,
+//     cacheProvider: false,
+//     disableInjectedProvider:false,
+//     theme:"dark",
+//     providerOptions
+//   });
+const providerOptions = {
+	binancechainwallet: {
+		package: true
+	  },
+	walletconnect: {
+		package: WalletConnectProvider,
+		options: {
+		  infuraId: "765d4237ce7e4d999f706854d5b66fdc"
+		}
+	  },
+	  coinbasewallet: {
+		package: CoinbaseWalletSDK, 
+		options: {
+		  appName: "Net2Dev NFT Minter", 
+		  infuraId: "765d4237ce7e4d999f706854d5b66fdc", 
+		  rpc: "", 
+		  chainId: 1, 
+		  appLogoUrl: null, 
+		  darkMode: true 
+		}
+	  },
+};
 
 const web3Modal = new Web3Modal({
-    network:"goerli",
-    cacheProvider: true,
-    theme:"dark",
-    providerOptions
-  })
+  network: "rinkeby",
+  theme: "dark",
+  cacheProvider: true,
+  providerOptions 
+});
 
-async function connectWallet(){
+async function submit(){
   var provider = await web3Modal.connect();
   var web3 = new Web3(provider);
   await provider.send("eth_requestAccounts");
@@ -49,25 +77,16 @@ async function connectWallet(){
   var account = accounts[0];
   document.getElementById("connectedWalletAddress").textContent = account;
   var contract = new web3.eth.Contract(ABI, ADDRESS)
-
-
 }
-
-
-
-
 function App() {
-  const connectedWallet = 0; //variable to toggle 'connect wallet' visibility
   return (
     <div className="App">
       <header className="App-header">
         <h1 className="header-app">Token Generator</h1>
-        {!connectedWallet && <button className="connectWallet" id='connectedWalletAddress' onClick={connectWallet}>Connect Wallet</button>}
       </header>
       <div className="non-header">
         <div className="intro-container">
-          {/* <svg version='1.1' id='Layer_1' xmlns='http://www.w3.org/2000/svg' xmlnsXlink='http://www.w3.org/1999/xlink' x='0px' y='0px' viewBox='0 0 1920 1920' enable-background='new 0 0 1920 1920' xmlpace='preserve'><g><polygon fill='#8A92B2' points='959.8,80.7 420.1,976.3 959.8,731 '/><polygon fill='#62688F' points='959.8,731 420.1,976.3 959.8,1295.4 '/><polygon fill='#62688F' points='1499.6,976.3 959.8,80.7 959.8,731 '/><polygon fill='#454A75' points='959.8,1295.4 1499.6,976.3 959.8,731 '/><polygon fill='#8A92B2' points='420.1,1078.7 959.8,1839.3 959.8,1397.6 '/><polygon fill='#62688F' points='959.8,1397.6 959.8,1839.3 1499.9,1078.7 '/></g></svg> */}
-          <img src={ eth } alt="eth logo" width="250px" />
+        <img src={ eth } alt="eth logo" width="250px" />
           <div className="eth-testnet">Ethereum-Testnet</div>
           <div className="intro">Create your ERC20 Token</div> 
         </div>
@@ -87,8 +106,10 @@ function App() {
                 <input type="number" id="tokenSupplyId" name="tokenSupply"/><br/>
               </div>
             </div>
-            <input type="submit" value="Create Token" />
           </form>
+          <div className="token-info-btn">
+            <button className='submit-btn' onClick={submit}>Create Token</button>
+          </div>
         </div>
       </div>
     </div>

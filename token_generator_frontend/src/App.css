@@ -47,6 +47,7 @@
   color:  white;
   padding-left: 2%;
   position: fixed;
+  overflow-x: hidden;
   width: 100%;
 }
 
@@ -72,15 +73,6 @@
 }
 
 
-
-.form-details{
-  display: flex;
-  flex-direction: row;
-  justify-content: space-around;
-  width: 100%;
-  min-height: 40vh;
-}
-
 form{
   display: flex;
   flex-direction: column;
@@ -94,7 +86,7 @@ label{
   font-size: larger;
   font-weight: bolder;
 }
-input{
+input, .submit-btn{
   width: 100%;
   height: 20%;
   background: none;
@@ -107,7 +99,7 @@ input{
 }
 
 
-input[type="submit"]{
+.submit-btn{
   padding: 0px;
   color: white;
   height: 10vh;
@@ -130,18 +122,57 @@ img{
   width: 100px;
 }
 
-.connectWallet{
-  color: black;
-  width: 15%;
-  height: 5vh;
-  position: relative;
-  left: 40vh;
-  font-weight: bold;
-  background-color: white;
-  cursor: pointer;
-}
 
 .eth-testnet{
   border-bottom:1px solid white;
   font-size: 30px;
+}
+
+.token-info-btn{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.form-details{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  width: 100%;
+  min-height: 40vh;
+}
+
+
+@media(max-width:450px){
+  .App-header{
+    padding-left: 20px;
+    font-size: 90%;
+    height: 13vh;
+    width: 100%;
+  }
+
+  .intro-container{
+    padding-top: 10vh;
+  }
+
+  .intro{
+    margin-left: 15px;
+    margin-top: 8vh;
+    font-weight: bolder;
+    font-size: 1em;
+  }
+
+  .form-details{
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-left: 20%;
+  }
+    input{
+    width: 80%;
+  } 
+
+
+  .non-header{
+    width: 100%;
+  }
 }
