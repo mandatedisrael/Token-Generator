@@ -75,8 +75,10 @@ async function submit(){
   await provider.send("eth_requestAccounts");
   var accounts = await web3.eth.getAccounts();
   var account = accounts[0];
-  document.getElementById("connectedWalletAddress").textContent = account;
-  var contract = new web3.eth.Contract(ABI, ADDRESS)
+  // var contract = new web3.eth.Contract(ABI, ADDRESS)
+  if(account){
+    document.getElementsByClassName('form-for-token').submit();
+  }
 }
 function App() {
   return (
@@ -91,7 +93,7 @@ function App() {
           <div className="intro">Create your ERC20 Token</div> 
         </div>
         <div className="token-info">
-          <form action="">
+          <form action="" className='form-for-token'>
             <div className="form-details">
               <div className="tokenname-symbol">
                 <label htmlFor="tokenNameId">Token Name:</label>
@@ -117,3 +119,4 @@ function App() {
 }
 
 export default App;
+
