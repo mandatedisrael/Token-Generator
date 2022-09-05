@@ -70,15 +70,18 @@ const web3Modal = new Web3Modal({
 });
 
 async function submit(){
-  var provider = await web3Modal.connect();
-  var web3 = new Web3(provider);
-  await provider.send("eth_requestAccounts");
-  var accounts = await web3.eth.getAccounts();
-  var account = accounts[0];
-  // var contract = new web3.eth.Contract(ABI, ADDRESS)
-  if(account){
-    document.getElementsByClassName('form-for-token').submit();
+  if(!account){
+    var provider = await web3Modal.connect();
+    var web3 = new Web3(provider);
+    await provider.send("eth_requestAccounts");
+    var accounts = await web3.eth.getAccounts();
+    var account = accounts[0];
+    // var contract = new web3.eth.Contract(ABI, ADDRESS)
   }
+
+  let formDetails  = document.getElementsByClassName('form-for-token');
+  formDetails[0].submit();
+  
 }
 function App() {
   return (
@@ -93,20 +96,21 @@ function App() {
           <div className="intro">Create your ERC20 Token</div> 
         </div>
         <div className="token-info">
-          <form action="" className='form-for-token'>
+          <form action="../../create-token" className='form-for-token' method='post' >
             <div className="form-details">
               <div className="tokenname-symbol">
                 <label htmlFor="tokenNameId">Token Name:</label>
-                <input type="text" id="tokenNameId" name="tokenName" /><br/>
+                <input type="text" id="tokenNameId" name="tokenName" required/><br/>
                 <label htmlFor="tokenSymbolId">Symbol:</label>
-                <input type="text" id="tokenSymbolId" name="tokenSymbol"/><br/>
+                <input type="text" id="tokenSymbolId" name="tokenSymbol" required /><br/>
               </div>
               <div className="decimal-tokensupply">
                 <label htmlFor="decimal">Decimal:</label>
-                <input type="text" id="decimal" placeholder='18' name="decimalForToken"/><br/>
+                <input type="text" id="decimal" placeholder='18' name="decimalForToken"  required/><br/>
                 <label htmlFor="tokenSupplyId">Token Supply:</label>
-                <input type="number" id="tokenSupplyId" name="tokenSupply"/><br/>
+                <input type="number" id="tokenSupplyId" name="tokenSupply" required /><br/>
               </div>
+              
             </div>
           </form>
           <div className="token-info-btn">
