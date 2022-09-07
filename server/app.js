@@ -5,6 +5,9 @@ var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 var app = express();
 
+app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
+
 var tokenDetailsRouter = require('./routes/tokenDetails');
 
 

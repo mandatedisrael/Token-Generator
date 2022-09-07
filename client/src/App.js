@@ -5,6 +5,8 @@ import Web3Modal from "web3modal";
 import CoinbaseWalletSDK from '@coinbase/wallet-sdk';
 import WalletConnectProvider from "@walletconnect/web3-provider";
 import {ethers} from "ethers";
+import { useState } from 'react';
+
 
 
 // const providerOptions = {
@@ -84,6 +86,17 @@ async function submit(){
   
 }
 function App() {
+  const [tokenName, setTokenName] = useState("")
+  const [tokenSymbol, setTokenSymbol] = useState("")
+  const [decimal, setTokenDecimal] = useState("")
+  const [supply, setTokenSupply] = useState("")
+
+  function handleSubmit(e){
+    e.preventDefault()
+    const tokenFullDetails = { tokenName, tokenSymbol, decimal, supply }
+    alert(tokenFullDetails)
+  }
+
   return (
     <div className="App">
       <header className="App-header">
@@ -96,21 +109,20 @@ function App() {
           <div className="intro">Create your ERC20 Token</div> 
         </div>
         <div className="token-info">
-          <form action="../../create-token" className='form-for-token' method='post' >
+          <form action="../../create-token" className='form-for-token' method='post' onSubmit={handleSubmit} >
             <div className="form-details">
               <div className="tokenname-symbol">
                 <label htmlFor="tokenNameId">Token Name:</label>
-                <input type="text" id="tokenNameId" name="tokenName" required/><br/>
+                <input type="text" id="tokenNameId" name="tokenName" value={tokenName} onChange={ (e) => setTokenName(e.target.value)} required/><br/>
                 <label htmlFor="tokenSymbolId">Symbol:</label>
-                <input type="text" id="tokenSymbolId" name="tokenSymbol" required /><br/>
+                <input type="text" id="tokenSymbolId" name="tokenSymbol" value={tokenSymbol} onChange={(e) => setTokenSymbol(e.target.value)} /><br/>
               </div>
               <div className="decimal-tokensupply">
                 <label htmlFor="decimal">Decimal:</label>
-                <input type="text" id="decimal" placeholder='18' name="decimalForToken"  required/><br/>
+                <input type="text" id="decimal" placeholder='18' name="decimalForToken"  value={decimal} onChange= {(e) => setTokenDecimal(e.target.value)}/><br/>
                 <label htmlFor="tokenSupplyId">Token Supply:</label>
-                <input type="number" id="tokenSupplyId" name="tokenSupply" required /><br/>
+                <input type="number" id="tokenSupplyId" name="tokenSupply" value={supply} onChange={(e) => setTokenSupply(e.target.value)} /><br/>
               </div>
-              
             </div>
           </form>
           <div className="token-info-btn">
