@@ -93,8 +93,6 @@ function App() {
 
   function handleSubmit(e){
     e.preventDefault()
-    const tokenFullDetails = { tokenName, tokenSymbol, decimal, supply }
-    alert(tokenFullDetails)
   }
 
   return (
