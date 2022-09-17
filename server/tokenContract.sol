@@ -11,7 +11,7 @@ contract TokenTemplate is ERC20 {
 
     event serverStatus(string serverMessage);
 
-    constructor (uint256 _tokenSupply, address _owner) ERC20 (tokenName,tokenSymbol){
+    constructor (uint256 _tokenSupply, address _owner) ERC20 (string _tokenName, string _tokenSymbol){
         _mint(_owner, _tokenSupply);
 
     }
