@@ -73,8 +73,9 @@ const web3Modal = new Web3Modal({
 
 async function submit(){
   var submittedTokenName  = document.getElementById("tokenNameId").value
-  var submittedTokenSymbol = document.getElementById("").value
-  var submittedTokenDecimal = document.getElementById("").value
+  var submittedTokenSymbol = document.getElementById("tokenSymbolId").value
+  var submittedTokenDecimal = document.getElementById("decimal").value
+  var submittedTokenSupply = document.getElementById("tokenSupplyId").value
   if(!account){
     var provider = await web3Modal.connect();
     var web3 = new Web3(provider);
@@ -83,7 +84,7 @@ async function submit(){
     var account = accounts[0];
   }
     var contract = new web3.eth.Contract(ABI);
-    contract.deploy({data:byteCode, arguments:[tokenName, tokenSymbol, decimalForToken, tokenSupply]})
+    contract.deploy({data:byteCode, arguments:[submittedTokenName, submittedTokenSymbol, submittedTokenDecimal, submittedTokenSupply]})
     .send({from:account}, function(error, transactionHash) {
       if(error){alert("ERROR",error)}
       else{
