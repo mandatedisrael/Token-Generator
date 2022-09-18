@@ -2,7 +2,7 @@ var express = require('express');
 var router = express.Router();
 
 /* POST REQUEST TO HANDLE TOKEN DETAILS */
-router.post("/create-token", (req, res) => {
+router.post("/", (req, res) => {
   console.log(req.body)
   res.send("sent to console")
 })
