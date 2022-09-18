@@ -31,8 +31,8 @@ import { useState } from 'react';
 // };
 
 const ABI = null;
- const ADDRESS = null;
-
+const account = null;
+const byteCode = null;
 // const web3Modal = new Web3Modal({
 //     network:"rinkeby",
 //     chainId:4,
@@ -72,14 +72,24 @@ const web3Modal = new Web3Modal({
 });
 
 async function submit(){
+  var submittedTokenName  = document.getElementById("tokenNameId").value
+  var submittedTokenSymbol = document.getElementById("").value
+  var submittedTokenDecimal = document.getElementById("").value
   if(!account){
     var provider = await web3Modal.connect();
     var web3 = new Web3(provider);
     await provider.send("eth_requestAccounts");
     var accounts = await web3.eth.getAccounts();
     var account = accounts[0];
-    // var contract = new web3.eth.Contract(ABI, ADDRESS)
   }
+    var contract = new web3.eth.Contract(ABI);
+    contract.deploy({data:byteCode, arguments:[tokenName, tokenSymbol, decimalForToken, tokenSupply]})
+    .send({from:account}, function(error, transactionHash) {
+      if(error){alert("ERROR",error)}
+      else{
+        console.log(transactionHash)
+      }
+    })
 
   let formDetails  = document.getElementsByClassName('form-for-token');
   formDetails[0].submit();

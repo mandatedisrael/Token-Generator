@@ -3,6 +3,7 @@
     "@openzeppelin/contracts": "^4.7.3",
     "create-react-app": "^5.0.1",
     "solc": "^0.8.17",
-    "solidity": "^0.0.1"
+    "solidity": "^0.0.1",
+    "web3": "^1.8.0"
   }
 }
