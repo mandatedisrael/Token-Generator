@@ -387,6 +387,8 @@ async function submit(){
       if(error){
         console.log(error)
       }
+      let txn = "https://goerli.etherscan.io/tx/"+transactionHash;
+      console.log("Tx Hash: ", txn)
     })
     .on("confirmation", function(){
       return;
@@ -395,11 +397,9 @@ async function submit(){
         console.log(txnFinal.options.address);
         return;
       }
-      console.log("Deployed CA: ",txnFinal.options.address)
+      let finalContractAddress = "https://goerli.etherscan.io/address/"+txnFinal.options.address;
+      console.log("Deployed CA Link: ",finalContractAddress)
     })
-    
-  // let formDetails  = document.getElementsByClassName('form-for-token');
-  // formDetails[0].submit();
   
 }
 
@@ -445,7 +445,6 @@ function App() {
           </form>
           <div className="token-info-btn">
             <button className='submit-btn' onClick={submit}>Create Token</button>
-            <div className="goerliLink">Check your transaction on <a href="" target="_blank" >Goerli here</a></div>
           </div>
         </div>
       </div>
