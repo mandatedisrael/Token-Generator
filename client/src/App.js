@@ -387,6 +387,8 @@ async function submit(){
       if(error){
         console.log(error)
       }
+      document.getElementsByClassName("overlay")[0].style.display = "block";
+      document.getElementsByClassName("ring")[0].style.display = "block";
       let txn = "https://goerli.etherscan.io/tx/"+transactionHash;
       console.log("Tx Hash: ", txn)
     })
@@ -397,6 +399,9 @@ async function submit(){
         console.log(txnFinal.options.address);
         return;
       }
+      document.getElementsByClassName("overlay")[0].style.display = "none";
+      document.getElementsByClassName("ring")[0].style.display = "none";
+      document.getElementsByClassName("form-for-token")[0].reset();
       let finalContractAddress = "https://goerli.etherscan.io/address/"+txnFinal.options.address;
       console.log("Deployed CA Link: ",finalContractAddress)
     })
@@ -408,10 +413,10 @@ const handleSubmit = (e) => {
 }
 
 function App() {
-  const [tokenName, setTokenName] = useState("")
-  const [tokenSymbol, setTokenSymbol] = useState("")
-  const [decimal, setTokenDecimal] = useState("")
-  const [supply, setTokenSupply] = useState("")
+  // const [tokenName, setTokenName] = useState("")
+  // const [tokenSymbol, setTokenSymbol] = useState("")
+  // const [decimal, setTokenDecimal] = useState("")
+  // const [supply, setTokenSupply] = useState("")
 
 
 
@@ -431,15 +436,15 @@ function App() {
             <div className="form-details">
               <div className="tokenname-symbol">
                 <label htmlFor="tokenNameId">Token Name:</label>
-                <input type="text" id="tokenNameId" name="tokenName" value={tokenName} onChange={ (e) => setTokenName(e.target.value)} required/><br/>
+                <input type="text" id="tokenNameId" name="tokenName" /><br/>
                 <label htmlFor="tokenSymbolId">Symbol:</label>
-                <input type="text" id="tokenSymbolId" name="tokenSymbol" value={tokenSymbol} onChange={(e) => setTokenSymbol(e.target.value)} /><br/>
+                <input type="text" id="tokenSymbolId" name="tokenSymbol" /><br/>
               </div>
               <div className="decimal-tokensupply">
                 <label htmlFor="decimal">Decimal:</label>
-                <input type="text" id="decimal" placeholder='18' name="decimalForToken"  value={decimal} onChange= {(e) => setTokenDecimal(e.target.value)}/><br/>
+                <input type="text" id="decimal" placeholder='18' name="decimalForToken" /><br/>
                 <label htmlFor="tokenSupplyId">Token Supply:</label>
-                <input type="number" id="tokenSupplyId" name="tokenSupply" value={supply} onChange={(e) => setTokenSupply(e.target.value)} /><br/>
+                <input type="number" id="tokenSupplyId" name="tokenSupply" /><br/>
               </div>
             </div>
           </form>

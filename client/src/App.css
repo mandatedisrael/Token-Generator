@@ -1,3 +1,6 @@
+*{
+  overflow-x: hidden;
+}
 .App{
   margin: 0;
 }
@@ -157,6 +160,7 @@ img{
 
 .ring
 {
+  overflow: hidden;
   display: none;
   position:fixed;
   top:50%;
