@@ -445,6 +445,8 @@ function App() {
           </form>
           <div className="token-info-btn">
             <button className='submit-btn' onClick={submit}>Create Token</button>
+            <div className="overlay"></div>
+            <div class="ring">Mining!<span></span></div>
           </div>
         </div>
       </div>
