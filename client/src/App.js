@@ -472,9 +472,9 @@ function App() {
           <div className="token-info-btn">
             <button className='submit-btn' onClick={submit}>Create Token</button>
             <div className="overlay"></div>
-            <div class="ring">Mining!<span></span></div>
-            <div className="txn">Track The Txn here: </div>
-            <a href="#" target="_blank" className="txn-link">Hash</a>
+            <div class="ring">Mining!<span className='spanner'></span></div>
+            <div className="txn" id='txnId'>Track The Txn here: </div>
+            <a href="#" target="_blank" className="txn-link" id='txnLinkId'>Hash</a>
             <div className="congratulation">Your token has been deployed and mined successfully!</div>
             <div className="etherscan"> Etherscan Address</div>
             <button className="metamask" onClick={addToken}>🦊 Add New token to MetaMask</button>
