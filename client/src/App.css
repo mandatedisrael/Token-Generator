@@ -234,7 +234,8 @@ img{
   position: fixed;
   top: 60%;
   left: 30%;
-  display: none;
+  display: block;
+  color: white;
 }
 
 body .txn{
@@ -252,14 +253,8 @@ body .txn{
   font-size: calc(1px + 8vmin);
 }
 
-.etherscan{
-  position: fixed;
-  top: 80%;
-  left: 30%;
-  display: none;
-}
 
-.metamask{
+.metamask, .etherscan{
   position: fixed;
   top: 90%;
   background-color: green;
@@ -267,7 +262,7 @@ body .txn{
   padding: 20px;
   left: 45%;
   cursor: pointer;
-  display: none;
+  display: block;
 }
 
 
@@ -307,11 +302,40 @@ body .txn{
   .txn{
      top: 54% !important;
      left: 18% !important;
+     display: none;
   }
   .txn-link{
     left: 40% !important;
+    display: none;
+  }
+  #faCheck{
+    position: fixed;
+    top:15%;
+    left:30%;
+    color: white;
+  }
+  .ring{
+    display: none;
+  }
+  .metamask{
+    color: white;
+    background-color: rebeccapurple;
+    top: 80%;
+    left: 23%;
+
+  }
+  .congratulation{
+    top: 48%;
+    left: 23%;
+    max-width: 60%
   }
 
+  .etherscan{
+    top: 65%;
+    left: 23%;
+    color: white;
+
+  }
 }
 @media only screen and (min-width:445px) and (max-width:1800px){
     .txn-link{
@@ -319,43 +343,3 @@ body .txn{
     }
 }
 
-.checkmark {
-  display:inline-block;
-  width:170px;
-  height: 170px;
-  -ms-transform: rotate(45deg); /* IE 9 */
-  -webkit-transform: rotate(45deg); /* Chrome, Safari, Opera */
-  transform: rotate(45deg);
-  position: fixed;
-  top: 30%;
-  left: 50%;
-}
-
-.checkmark_circle {
-  position: absolute;
-  width:170px;
-  height: 170px;
-  background-color: green;
-  border-radius:50%;
-  left:0;
-  top:0;
-  position: fixed;
-}
-
-.checkmark_stem {
-  position: fixed;
-  width:30px;
-  height:90px;
-  background-color:#fff;
-  left:11px;
-  top:6px;
-}
-
-.checkmark_kick {
-  position: fixed;
-  width:30px;
-  height:30px;
-  background-color:#fff;
-  left:1px;
-  top:75px;
-}
