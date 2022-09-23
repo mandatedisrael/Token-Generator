@@ -1,6 +1,6 @@
 node_modules/
-/public/css
-/public/webfonts
+/client/public/css
+/client/public/webfonts
 /.pnp
 .pnp.js
 

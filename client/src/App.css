@@ -339,7 +339,31 @@ body .txn{
 }
 @media only screen and (min-width:445px) and (max-width:1800px){
     .txn-link{
-      top: 40% !important;
+      top: 70% !important;
+      left: 40% !important;
+      display: none;
+    }
+    .txn{
+      left: 20% !important;
+      display: none;
+    }
+    #faCheck{
+      position: fixed;
+      top:15%;
+      left:30%;
+      color: white;
+    }
+
+    .ring{
+      display: none;
+    }
+    .congratulation{
+      top: 45%;
+      left: 20%;
+    }
+    .etherscan{
+      top: 60%;
+      left: 25%;
     }
 }
 
