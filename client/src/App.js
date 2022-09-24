@@ -477,7 +477,7 @@ function App() {
             <i class="fa-solid fa-circle-check fa-10x" id='faCheck'></i>
             <a href="#" target="_blank" className="txn-link" id='txnLinkId'>Hash</a>
             <div className="congratulation">Your token has been minted successfully!</div>
-            <button className="etherscan" onClick={addToken}>🪙 Go to Token Etherscan Address</button>
+            <button className="etherscan" onClick={addToken}>🪙  Token Etherscan Address </button>
             <button className="metamask" onClick={addToken}>🦊 Add New token to MetaMask</button>
           </div>
         </div>

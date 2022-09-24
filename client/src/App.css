@@ -133,13 +133,19 @@ img{
   height: 100%;
   top: 0;
   opacity: 0.9;
-  display: block;
+  display: none;
+}
+
+#faCheck{
+  position: fixed;
+  color: white;
+  display: none;
 }
 
 .ring
 {
   overflow: hidden;
-  display: block;
+  display: none;
   position:fixed;
   top:30%;
   left:50%;
@@ -147,13 +153,13 @@ img{
   width:170px;
   height: 170px;
   background:transparent;
-  border:3px solid red;
+  border:3px solid green;
   border-radius:50%;
   text-align:center;
   line-height:150px;
   font-family:sans-serif;
   font-size:20px;
-  color:green;
+  color:white;
   letter-spacing:4px;
   text-transform:uppercase;
   text-shadow:0 0 10px black;
@@ -233,17 +239,19 @@ img{
 .congratulation{
   position: fixed;
   top: 60%;
-  left: 30%;
-  display: block;
+  left: 30% !important;
+  display: none;
+  font-size: calc(10px + 2vmin);
   color: white;
 }
 
-body .txn{
+.txn{
   position: fixed;
   top: 60%;
   left: 28%;
   font-size: calc(1px + 8vmin);
   color: white;
+  display: none;
 }
 
 .txn-link{
@@ -251,10 +259,12 @@ body .txn{
   top: 60%;
   left: 62%;
   font-size: calc(1px + 8vmin);
+  display: none;
 }
 
 
 .metamask, .etherscan{
+  color: white;
   position: fixed;
   top: 90%;
   background-color: green;
@@ -262,7 +272,11 @@ body .txn{
   padding: 20px;
   left: 45%;
   cursor: pointer;
-  display: block;
+  display: none;
+}
+
+.metamask{
+  background-color: rebeccapurple;
 }
 
 
@@ -302,24 +316,15 @@ body .txn{
   .txn{
      top: 54% !important;
      left: 18% !important;
-     display: none;
   }
   .txn-link{
     left: 40% !important;
-    display: none;
   }
   #faCheck{
-    position: fixed;
     top:15%;
     left:30%;
-    color: white;
-  }
-  .ring{
-    display: none;
   }
   .metamask{
-    color: white;
-    background-color: rebeccapurple;
     top: 80%;
     left: 23%;
 
@@ -333,37 +338,54 @@ body .txn{
   .etherscan{
     top: 65%;
     left: 23%;
-    color: white;
-
   }
 }
-@media only screen and (min-width:445px) and (max-width:1800px){
+
+@media  screen and (min-width:451px) and (max-width: 799px) {
+  #faCheck{
+    top: 15%;
+  }
+  .congratulation{
+    top: 48%;
+    left: 23%;
+  }
+  .etherscan{
+    top: 65%;
+    left: 23%;
+  }
+  .metamask{
+    top: 80%;
+    left: 23%;
+  }
+  .txn-link{
+    top: 70%;
+    left: 40%;
+  }
+  
+}
+@media only screen and (min-width:800px){
     .txn-link{
-      top: 70% !important;
-      left: 40% !important;
-      display: none;
+      top: 60% !important;
+      left: 60% !important;
     }
     .txn{
-      left: 20% !important;
-      display: none;
+      left: 25% !important;
     }
     #faCheck{
-      position: fixed;
       top:15%;
-      left:30%;
-      color: white;
-    }
-
-    .ring{
-      display: none;
+      left:43% !important;
     }
     .congratulation{
       top: 45%;
-      left: 20%;
+      left: 35% !important;
     }
     .etherscan{
       top: 60%;
       left: 25%;
+    }
+    .metamask{
+      top: 60%;
+      left: 60%;
     }
 }
 
