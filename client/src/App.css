@@ -273,6 +273,7 @@ img{
   left: 45%;
   cursor: pointer;
   display: none;
+  text-decoration: none;
 }
 
 .metamask{
