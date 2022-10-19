@@ -408,7 +408,6 @@ async function submit(){
       document.getElementsByClassName("txn")[0].style.display = "none";
       document.getElementsByClassName("txn-link")[0].style.display = "none";
       document.getElementsByClassName("ring")[0].style.display = "none";
-      document.getElementsByClassName("form-for-token")[0].reset();
       tokenAddress = txnFinal.options.address
       let finalContractAddress = "https://goerli.etherscan.io/token/"+txnFinal.options.address;
       document.getElementsByClassName("etherscan")[0].href = finalContractAddress;
@@ -426,6 +425,7 @@ async function addToken(){
     const submittedTokenSymbol = document.getElementById("tokenSymbolId").value;
     const submittedTokenDecimal = document.getElementById("decimal").value;
     var provider = await web3Modal.connect();
+    console.log(tokenAddress, submittedTokenDecimal, submittedTokenSymbol)
     var web3 = new Web3(provider);
     await  web3.currentProvider.request({
       method: 'wallet_watchAsset',
@@ -438,6 +438,8 @@ async function addToken(){
         },
       },
     });
+  document.getElementsByClassName("congratulation").innerText = "Your token has been added!"
+  document.getElementsByClassName("form-for-token")[0].reset();
   } catch (error) {
     console.log(error);
     alert("Can't Add Token due to an error, please add manually!")
