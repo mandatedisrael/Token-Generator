@@ -392,10 +392,8 @@ async function submit(){
       }
       document.getElementsByClassName("overlay")[0].style.display = "block";
       document.getElementsByClassName("ring")[0].style.display = "block";
-      document.getElementsByClassName("txn")[0].style.display = "block"
-      document.getElementsByClassName("txn-link")[0].style.display = "block"
       let txn = "https://goerli.etherscan.io/tx/"+transactionHash;
-      document.getElementsByClassName("txn-link")[0].href = txn;
+      document.getElementsByClassName("txn-link")[0].innerHTML = txn;
       console.log("Tx Hash: ", txn)
     })
     .on("confirmation", function(){
@@ -405,17 +403,10 @@ async function submit(){
         console.log(txnFinal.options.address);
         return;
       }
-      document.getElementsByClassName("overlay")[0].style.display = "block";
-      document.getElementsByClassName("txn")[0].style.display = "none";
-      document.getElementsByClassName("txn-link")[0].style.display = "none";
+      document.getElementsByClassName("overlay")[0].style.display = "none";
       document.getElementsByClassName("ring")[0].style.display = "none";
       tokenAddress = txnFinal.options.address
       let finalContractAddress = "https://goerli.etherscan.io/address/"+txnFinal.options.address;
-      document.getElementsByClassName("etherscan")[0].href = finalContractAddress;
-      document.getElementsByClassName("etherscan")[0].style.display = "block";
-      document.getElementsByClassName("congratulation")[0].style.display = "block";
-      document.getElementById("faCheck").style.display = "block";
-      document.getElementsByClassName("metamask")[0].style.display = "block";
       console.log("Deployed CA Link: ",finalContractAddress)
     })
   
@@ -494,8 +485,8 @@ function App() {
             <i class="fa-solid fa-circle-check fa-10x" id='faCheck'></i>
             <a href="#" target="_blank" className="txn-link" id='txnLinkId'>Hash</a>
             <div className="congratulation">Your token has been minted successfully!</div>
-            <button className="etherscan" target="_blank">🪙 Token Etherscan Address </button>
-            <button className="metamask"  target="_blank" onClick={addToken}>🦊 Add New token to MetaMask</button>
+            <button className="etherscan" onClick={addToken}>🪙  Token Etherscan Address </button>
+            <button className="metamask" onClick={addToken}>🦊 Add New token to MetaMask</button>
           </div>
         </div>
       </div>
