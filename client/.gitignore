@@ -6,6 +6,8 @@ yarn-debug.log*
 yarn-error.log*
 firebase-debug.log*
 firebase-debug.*.log*
+build/webfonts/*
+build/css/*.css
 
 # Firebase cache
 .firebase/
