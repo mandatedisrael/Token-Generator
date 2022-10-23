@@ -14,17 +14,17 @@ ____
 ### Live and Deployed to Firebase, You can try the Token Generator website [here](https://tokengenerator-1.web.app/)
 
 ### Token details needed:
-* Token Name
-* Token Total Supply
-* Token Symbol
-* Decimal (Advisably, leave it as 18)
+> * - Token Name
+> * - Token Total Supply
+> * - Token Symbol
+> * - Decimal (Advisably, leave it as 18)
 
 ### App Features:
-* Multi-Wallet Feature, not stock to Metamask Alone!
-* Responsive app
-* Nice and simple Interface
-* Interactive as you can easily track the mining
-* Ability to add newly deployed token to wallet
+> * - Multi-Wallet Feature, not stock to Metamask Alone!
+> * - Responsive app
+> * - Nice and simple Interface
+> * - Interactive as you can easily track the mining
+> * - Ability to add newly deployed token to wallet
 
 --------------------------------------------
 Thank you and Check back for more awesome apps!
